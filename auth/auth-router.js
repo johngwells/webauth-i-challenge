@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
+const session = require('express-session');
 
 const Users = require('../users/users-model');
 const validate = require('../middleware/validate-user');
@@ -42,7 +43,7 @@ router.get('/logout', (req, res) => {
   if (req.session) {
     req.session.destroy(err => {
       if (err) {
-        res.json({ message: 'You cant logged out'})
+        res.json({ message: 'You cant log out' })
       } else {
         res.status(200).json({ message: 'Goodbye' })
       }

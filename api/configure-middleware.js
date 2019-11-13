@@ -10,12 +10,12 @@ module.exports = server => {
     cookie: {
       maxAge: 1000 * 30,
       secure: false, // true in production
-      httpOnly: true
     },
+    httpOnly: true,
     resave: false,
     saveOnInitialized: false // GDPR laws setting cookies auto
   };
-  
+
   server.use(helmet());
   server.use(express.json());
   server.use(cors());
